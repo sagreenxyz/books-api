@@ -9,10 +9,12 @@ books.get('/', (req, res) => {
 });
 
 books.get('/data/seed', (req, res) => {
+    Book.deleteMany({}).then(() => {
         Book.insertMany(seedData)
             .then(createdBooks => {
                 res.redirect('/books');
             });
+    });
 });
 
 module.exports = books;
