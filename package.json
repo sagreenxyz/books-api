@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/sagreenxyz/books-api/issues"
   },
-  "homepage": "https://github.com/sagreenxyz/books-api#readme"
+  "homepage": "https://github.com/sagreenxyz/books-api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  }
 }
