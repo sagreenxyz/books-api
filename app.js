@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
     res.send('books-api GET /');
 });
 
+// Require and Use Books Controller
+const bookController = require('./controllers/books_controller.js');
+app.use('/books', bookController); // Handle all routes starting with http://localhost:3003/books using books controller
+
 // LISTEN
 app.listen(PORT, () => {
     console.log(`books-api server running at http://localhost:${PORT}`);
