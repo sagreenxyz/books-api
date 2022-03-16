@@ -6,6 +6,9 @@ require('dotenv').config();
 const PORT = process.env.PORT || 5000;
 const app = express();
 
+// MIDDLEWARE
+app.use(express.json());
+
 // ROUTES
 app.get('/', (req, res) => {
     res.send('books-api GET /');
