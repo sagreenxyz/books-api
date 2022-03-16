@@ -1,11 +1,15 @@
 const express = require('express');
+const { rawListeners } = require('../models/books.js');
 const books = express.Router();
 const Book = require('../models/books.js');
 const seedData = require('../seeds/books-seed.js');
 
 // INDEX http://localhost:[PORT]/books/
 books.get('/', (req, res) => {
-    res.status(200).send(`books-api books controller for route  http://localhost:[PORT]/books/`);
+    Book.find()
+    .then(foundBooks => {
+        res.json(foundBooks);
+    });
 });
 
 books.get('/data/seed', (req, res) => {
