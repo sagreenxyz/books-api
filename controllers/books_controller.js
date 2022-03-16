@@ -7,8 +7,19 @@ const seedData = require('../seeds/books-seed.js');
 // INDEX http://localhost:[PORT]/books/
 books.get('/', (req, res) => {
     Book.find()
-    .then(foundBooks => {
-        res.status(200).json(foundBooks);
+        .then(foundBooks => {
+            res.status(200).json(foundBooks);
+        })
+        .catch(err => {
+            res.status(err.statusCode || 404).send(`Error: ${err.statusCode} - ${err.status}`)
+        });
+});
+
+// SHOW http://localhost:[PORT]/books/:id
+books.get('/:id', (req, res) => {
+    Book.findOne({ id: req.params.id })
+    .then(foundBook => {
+        res.json(foundBook);
     })
     .catch(err => {
         res.status(err.statusCode || 404).send(`Error: ${err.statusCode} - ${err.status}`)
