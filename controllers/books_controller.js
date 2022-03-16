@@ -10,6 +10,9 @@ books.get('/', (req, res) => {
 
 books.get('/data/seed', (req, res) => {
         Book.insertMany(seedData)
+            .then(createdBooks => {
+                res.redirect('/books');
+            });
 });
 
 module.exports = books;
