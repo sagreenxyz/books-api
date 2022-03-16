@@ -8,7 +8,10 @@ const seedData = require('../seeds/books-seed.js');
 books.get('/', (req, res) => {
     Book.find()
     .then(foundBooks => {
-        res.json(foundBooks);
+        res.status(200).json(foundBooks);
+    })
+    .catch(err => {
+        res.status(err.statusCode || 404).send(`Error: ${err.statusCode} - ${err.status}`)
     });
 });
 
