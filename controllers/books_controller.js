@@ -26,6 +26,21 @@ books.get('/:id', (req, res) => {
     });
 });
 
+// CREATE http://localhost:[PORT]/books/
+books.post('/', (req, res) => {
+
+});
+
+// UPDATE http://localhost:[PORT]/books/:id
+books.put('/:id', (req, res) => {
+
+});
+
+// DELETE http://localhost:[PORT]/books/:id
+books.delete('/:id', (req, res) => {
+
+});
+
 books.get('/data/seed', (req, res) => {
     Book.deleteMany({}).then(() => {
         Book.insertMany(seedData)
